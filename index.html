@@ -3,92 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Saya</title>
+    <title>Portofolio Minimalis</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="logo">PORTFOLIO.</div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="burger">
-            <div class="line1"></div>
-            <div class="line2"></div>
-            <div class="line3"></div>
-        </div>
-    </nav>
+    <div class="corner corner-top-left"></div>
+    <div class="corner corner-bottom-right"></div>
 
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h3 class="fade-in">Halo, saya</h3>
-            <h1 class="typewriter">Nama Anda</h1>
-            <p class="fade-in">Frontend Developer & UI/UX Enthusiast</p>
-            <a href="#projects" class="btn fade-in">Lihat Karya</a>
+    <header>
+        <div class="logo">
+            <img src="assets/image_profile.jpg" alt="Profile Image" class="profile-img">
         </div>
-    </section>
+        <nav class="social-icons">
+            <a href="mailto:muhammadsyafrizal55@gmail.com" title="Email Saya">
+            <i class="fas fa-envelope"></i></a>
+            <a href="https://github.com/MuhammadSyafrizal" target="https://github.com/MuhammadSyafrizal" title="GitHub Saya">
+            <i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/muhammad-syafrizal-wijaya-3b945914a/" target="https://www.linkedin.com/in/muhammad-syafrizal-wijaya-3b945914a/" title="LinkedIn Saya">
+            <i class="fab fa-linkedin"></i></a>
+        </nav>
+    </header>
 
-    <section id="about" class="section">
-        <div class="container">
-            <h2 class="section-title fade-in">Tentang Saya</h2>
-            <div class="about-content fade-in">
-                <p>Saya adalah pengembang web yang berfokus pada penciptaan pengalaman digital yang minimalis namun fungsional. Saya percaya bahwa desain yang baik adalah desain yang tidak terlihat rumit.</p>
-                <div class="skills">
-                    <span>HTML5</span>
-                    <span>CSS3</span>
-                    <span>JavaScript</span>
-                    <span>React</span>
-                    <span>Figma</span>
-                </div>
+    <main>
+        <section class="bio-section">
+            <h1>Welcome.</h1>
+            <div class="bio-text">
+                <p>
+                    Nama saya adalah <strong>Muhammad Syafrizal Wijaya</strong>, saya seorang Teknisi yang berbasis di Indonesia. 
+                    Saya telah mengembangkan berbagai jenis antarmuka dari aplikasi, website hingga platform kreatif.
+                </p>
+                <p>
+                    Saya bersemangat bekerja sebagai Teknisi atau Staf Operasional dengan kemampuan adaptasi yang cepat.
+                </p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="projects" class="section">
-        <div class="container">
-            <h2 class="section-title fade-in">Proyek Unggulan</h2>
-            <div class="project-grid">
-                <div class="project-card fade-in">
-                    <div class="card-image"></div>
-                    <div class="card-info">
-                        <h3>E-Commerce App</h3>
-                        <p>Aplikasi belanja online dengan fitur keranjang dinamis.</p>
-                    </div>
-                </div>
-                <div class="project-card fade-in">
-                    <div class="card-image"></div>
-                    <div class="card-info">
-                        <h3>Dashboard Admin</h3>
-                        <p>Visualisasi data real-time untuk manajemen stok.</p>
-                    </div>
-                </div>
-                <div class="project-card fade-in">
-                    <div class="card-image"></div>
-                    <div class="card-info">
-                        <h3>Landing Page</h3>
-                        <p>Halaman promosi produk dengan animasi scroll.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="section">
-        <div class="container">
-            <h2 class="section-title fade-in">Hubungi Saya</h2>
-            <p class="fade-in">Tertarik bekerja sama? Kirimkan pesan.</p>
-            <a href="mailto:email@anda.com" class="btn fade-in">Kirim Email</a>
-        </div>
-    </section>
+        <section class="projects-section">
+            <h2>Projects</h2>
+            <ul class="project-list">
+                <li><a href="#" class="project-link" data-img="assets/image1.png">Staycation</a></li>
+                <li><a href="#" class="project-link" data-img="assets/image3.png">Couply</a></li>
+                <li><a href="#" class="project-link" data-img="assets/image2.png">Fauxica</a></li>
+                <li><a href="#" class="project-link" data-img="assets/image4.png">Airplane App</a></li>
+                <li><a href="#" class="project-link" data-img="assets/image5.png">Money Management App</a></li>
+         </ul>
+        </section>
+    </main>
 
     <footer>
-        <p>&copy; 2025 Nama Anda. Dibuat dengan <span style="color: #64ffda;">&hearts;</span></p>
+        &copy; 2025 
     </footer>
+
+    <div class="modal" id="imageModal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal()">&times;</button>
+            <img src="" alt="Project Preview" id="modalImage">
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

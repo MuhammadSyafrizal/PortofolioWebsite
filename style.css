@@ -1,10 +1,11 @@
-/* Reset & Variables */
+/* --- 1. RESET & VARIABLES --- */
 :root {
-    --bg-color: #0a192f;
-    --text-primary: #ccd6f6;
-    --text-secondary: #8892b0;
-    --accent-color: #64ffda;
-    --font-main: 'Poppins', sans-serif;
+    --bg-color: #1b1917;
+    --text-color: #fffdf3;
+    --text-muted: #fbfbee;
+    --accent-gradient-1: linear-gradient(135deg, #00df81 0%, #2561e2 100%); /* Green-Blue */
+    --accent-gradient-2: linear-gradient(135deg, #667eea 0%, #020102 100%); /* Blue-Purple */
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 * {
@@ -15,200 +16,267 @@
 
 body {
     background-color: var(--bg-color);
-    color: var(--text-primary);
+    color: var(--text-color);
     font-family: var(--font-main);
-    line-height: 1.6;
+    height: 100vh;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
 }
 
-html {
-    scroll-behavior: smooth;
+/* --- 2. CORNER DECORATIONS (The Gradients) --- */
+.corner {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    z-index: -1;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-    transition: 0.3s;
+.corner-top-left {
+    top: 0;
+    left: 0;
+    background: var(--accent-gradient-1);
+    clip-path: polygon(0 0, 100% 0, 0 100%);
 }
 
-/* Navigation */
-.navbar {
+.corner-bottom-right {
+    bottom: 0;
+    right: 0;
+    background: var(--accent-gradient-2);
+    clip-path: polygon(100% 100%, 0 100%, 100% 0);
+}
+
+/* --- 3. HEADER / NAV --- */
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 50px;
-    position: fixed;
-    width: 100%;
-    background: rgba(10, 25, 47, 0.9);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
+    padding: 2rem 4rem;
 }
 
+/* Styling Baru untuk Logo Gambar */
 .logo {
+    font-weight: bold;
     font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--accent-color);
+    /* Hilangkan opacity: 0.8; */
 }
 
-.nav-links {
-    display: flex;
-    list-style: none;
-}
-
-.nav-links li {
-    margin-left: 30px;
-}
-
-.nav-links a:hover {
-    color: var(--accent-color);
-}
-
-/* Hero Section */
-.hero {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 0 20px;
-}
-
-.hero h1 {
-    font-size: 4rem;
-    margin: 10px 0;
-    color: var(--accent-color);
-}
-
-.hero h3 {
-    color: var(--accent-color);
-    font-weight: 400;
-}
-
-.btn {
-    display: inline-block;
-    margin-top: 30px;
-    padding: 12px 30px;
-    border: 1px solid var(--accent-color);
-    color: var(--accent-color);
-    border-radius: 5px;
-    font-size: 1rem;
-}
-
-.btn:hover {
-    background: rgba(100, 255, 218, 0.1);
-}
-
-/* General Section Styling */
-.section {
-    padding: 100px 50px;
-    min-height: 80vh;
-}
-
-.container {
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.section-title {
-    font-size: 2rem;
-    margin-bottom: 40px;
-    position: relative;
-    display: inline-block;
-}
-
-.section-title::after {
-    content: "";
-    display: block;
-    width: 60%;
-    height: 2px;
-    background: var(--accent-color);
-    margin-top: 5px;
-}
-
-/* About Section */
-.skills span {
-    display: inline-block;
-    background: #112240;
-    padding: 5px 15px;
-    margin: 10px 5px 0 0;
-    border-radius: 4px;
-    color: var(--accent-color);
-    font-size: 0.9rem;
-}
-
-/* Projects Grid */
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.project-card {
-    background: #112240;
-    border-radius: 5px;
-    overflow: hidden;
+.profile-img {
+    width: 75px; /* Sesuaikan ukuran sesuai kebutuhan */
+    height: 75px;
+    border-radius: 50%; /* Membuat gambar menjadi lingkaran */
+    object-fit: cover; /* Memastikan gambar mengisi area tanpa terdistorsi */
+    border: 2px solid #333; /* Sedikit border halus */
     transition: transform 0.3s ease;
+}
+
+.profile-img:hover {
+    transform: scale(1.05); /* Efek hover simpel */
+    border-color: #a3e635;
+}
+
+/* Styling Ikon Sosial */
+.social-icons a {
+    color: var(--text-color);
+    margin-left: 1.5rem;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+    display: inline-block;
+}
+
+.social-icons a:hover {
+    transform: translateY(-3px);
+    color: #00f260; /* Green accent hover */
+}
+
+/* ... (Sisa styling untuk MAIN, FOOTER, MODAL, dan Keyframes tetap sama) ... */
+/* Pastikan sisa kode CSS dari file sebelumnya disalin ke bawah ini */
+/* ... */
+/* --- 4. MAIN CONTENT --- */
+main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10%;
+    gap: 4rem;
+}
+
+/* Left Column: Bio */
+.bio-section {
+    max-width: 600px;
+    animation: slideInLeft 1s ease forwards;
+}
+
+h1 {
+    font-size: 6rem;
+    font-weight: 200;
+    margin-bottom: 2rem;
+    letter-spacing: -2px;
+    opacity: 0.9;
+}
+
+.bio-text {
+    border-left: 3px solid;
+    border-image: var(--accent-gradient-1) 1;
+    padding-left: 1.5rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+}
+
+.bio-text p {
+    margin-bottom: 1rem;
+}
+
+/* Right Column: Projects */
+.projects-section {
+    min-width: 300px;
+    animation: slideInRight 1s ease forwards;
+}
+
+.projects-section h2 {
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    color: var(--text-muted);
+}
+
+.project-list {
+    list-style: none;
+    border-left: 3px solid;
+    border-image: var(--accent-gradient-2) 1;
+    padding-left: 1.5rem;
+}
+
+.project-list li {
+    margin-bottom: 1rem;
+}
+
+.project-link {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.1rem;
+    position: relative;
     cursor: pointer;
+    transition: color 0.3s ease;
+    padding-bottom: 2px;
 }
 
-.project-card:hover {
-    transform: translateY(-10px);
+/* Button/Link Animation */
+.project-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    transition: width 0.3s ease;
 }
 
-.card-image {
-    height: 200px;
-    background: #233554; /* Placeholder warna gambar */
+.project-link:hover {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255,255,255,0.3);
 }
 
-.card-info {
-    padding: 20px;
+.project-link:hover::after {
+    width: 100%;
 }
 
-.card-info h3 {
-    margin-bottom: 10px;
-    color: var(--text-primary);
-}
-
-.card-info p {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-}
-
-/* Contact & Footer */
-#contact {
-    text-align: center;
-}
-
+/* --- 5. FOOTER --- */
 footer {
-    text-align: center;
-    padding: 20px;
-    color: var(--text-secondary);
+    text-align: right;
+    padding: 1rem 4rem;
+    color: var(--text-muted);
     font-size: 0.8rem;
 }
 
-/* Animation Classes */
-.fade-in {
+/* --- 6. IMAGE POPUP (MODAL) --- */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease-out;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
 }
 
-.fade-in.visible {
+.modal.active {
     opacity: 1;
-    transform: translateY(0);
+    visibility: visible;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none; /* Sederhana dulu untuk mobile */
+.modal-content {
+    transform: scale(0.8);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    max-width: 80%;
+    max-height: 80%;
+    position: relative;
+}
+
+.modal.active .modal-content {
+    transform: scale(1);
+}
+
+.modal-content img {
+    max-width: 100%;
+    max-height: 80vh;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    border: 1px solid #333;
+}
+
+.close-btn {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    transition: transform 0.3s;
+}
+
+.close-btn:hover {
+    transform: rotate(90deg);
+    color: #ff5f5f;
+}
+
+/* --- 7. RESPONSIVE --- */
+@media (max-width: 900px) {
+    main {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2rem;
+        gap: 2rem;
     }
     
-    .hero h1 {
-        font-size: 2.5rem;
+    h1 {
+        font-size: 4rem;
     }
-    
-    .section {
-        padding: 80px 20px;
+
+    header {
+        padding: 1rem 2rem;
     }
+}
+
+/* Keyframes */
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
 }
